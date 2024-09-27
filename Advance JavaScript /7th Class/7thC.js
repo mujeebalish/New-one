@@ -1,0 +1,3 @@
+function doAsynchronousTask(callback) {
+  setTimeout()
+}

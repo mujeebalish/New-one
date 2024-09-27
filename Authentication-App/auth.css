@@ -1,0 +1,22 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.coldiv{
+  width: 100px;
+  height: auto;
+  background-color: red;
+  margin-left: 100px;
+  padding: 15px 32px;
+}
+#colbtn{
+  width: 60px;
+  
+  background-color: chocolate;
+  margin-left: 50px;
+  padding: 10px;
+  border: none;
+  border-radius: 10%;
+  cursor: pointer;
+}

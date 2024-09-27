@@ -1,0 +1,19 @@
+*{
+  margin: 0px;
+  padding: 0px;
+ box-sizing: border-boxb
+}
+h1{
+  background-color: red;
+  color: white;
+}
+#redone{
+  width: 100px;
+  height: 20vh;
+  background-color: black;
+  color: whitesmoke;
+  margin-left: 100px;
+}
+
+
+

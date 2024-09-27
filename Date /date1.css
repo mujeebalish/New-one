@@ -1,0 +1,25 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  }
+    .container-box{
+      width: 100%;
+      height:100vh ;
+      background: linear-gradient(90deg, rgba(175,75,243,1) 11%, rgba(233,38,38,0.8659759182400173) 50%, rgba(76,228,232,0.9928954611884223) 100%);
+    background-image: center;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    }
+  .container{
+    width: 300px;
+    height: 300px;
+    background-color: black; 
+    border: none;
+    border-radius: 20px;
+    
+  }

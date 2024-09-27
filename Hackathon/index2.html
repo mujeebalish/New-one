@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal Sign Up</title>
+    <link rel="stylesheet" href="Hackathon.css">
+</head>
+<body>
+
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <!-- First Name -->
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter a password" required>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+            </div>
+
+            <!-- ID Card Number -->
+            <div class="form-group">
+                <label for="id-card">ID Card Number</label>
+                <input type="text" id="id-card" name="id-card" placeholder="Enter your ID card number" required>
+            </div>
+
+            <!-- User Type -->
+            <div class="form-group">
+                <label for="user-type">User Type</label>
+                <select id="user-type" name="user-type" required>
+                    <option value="">Select User Type</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </div>
+        </form>
+        <p class="login-link">Already have an account? <a href="/login">Log in here</a>.</p>
+    </div>
+
+    <!-- Firebase REST API Integration -->
+    <script>
+        const firebaseApiKey = 'YOUR_FIREBASE_API_KEY';  // Replace with your Firebase API key
+
+        const signupForm = document.getElementById('signup-form');
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const idCard = document.getElementById('id-card').value;
+            const userType = document.getElementById('user-type').value;
+
+            // Ensure passwords match
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            try {
+                // 1. Create User with Firebase Authentication REST API
+                const signUpResponse = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${firebaseApiKey}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password,
+                        returnSecureToken: true
+                    })
+                });
+
+                const signUpData = await signUpResponse.json();
+                if (!signUpResponse.ok) {
+                    throw new Error(signUpData.error.message);
+                }
+
+                // User successfully created
+                const userIdToken = signUpData.idToken;
+                const userId = signUpData.localId;
+
+                // 2. Save Additional User Info in Firestore via REST API
+                const firestoreResponse = await fetch(`https://firestore.googleapis.com/v1/projects/YOUR_PROJECT_ID/databases/(default)/documents/users/${userId}?key=${firebaseApiKey}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Authorization': `Bearer ${userIdToken}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        fields: {
+                            firstName: { stringValue: firstName },
+                            lastName: { stringValue: lastName },
+                            email: { stringValue: email },
+                            idCard: { stringValue: idCard },
+                            userType: { stringValue: userType }
+                        }
+                    })
+                });
+
+                const firestoreData = await firestoreResponse.json();
+                if (!firestoreResponse.ok) {
+                    throw new Error(firestoreData.error.message);
+                }
+
+                alert('Sign Up successful!');
+
+            } catch (error) {
+                console.error('Error during sign up:', error);
+                alert(error.message);
+            }
+        });
+    </script>
+</body>
+</html>
+
+</body>
+
+</html>

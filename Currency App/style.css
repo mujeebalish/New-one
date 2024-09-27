@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #3498db, #9b59b6);
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  color: #fff;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.input-section {
+  margin-bottom: 20px;
+}
+
+.input-section label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+input[type="number"]::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.currency-select {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.currency-box {
+  width: 48%;
+}
+
+.currency-box label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  background: #03a9f4;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background: #0288d1;
+}
+
+.result {
+  margin-top: 20px;
+}
+
+.result h3 {
+  font-size: 18px;
+}
+
+#result {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}

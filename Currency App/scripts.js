@@ -3,14 +3,14 @@ document.getElementById('convert-btn').addEventListener('click', function() {
   const fromCurrency = document.getElementById('from-currency').value;
   const toCurrency = document.getElementById('to-currency').value;
 
-  if (!amount || amount <= 0) {
+  if (!amount || amount <= 0) {.  ; =
     document.getElementById('result').innerText = 'Please enter a valid amount';
     return;
   }
 
-  // Simple conversion rates (you can replace these with API calls for live data)
+  // Simple conversion rates (you can replace these with API calls for live data) to (())
   const exchangeRates = {
-    USD: { EUR: 0.85, GBP: 0.75, JPY: 110, INR: 74 },
+    USD: { EUR: 0.85, GBP: 0.75, JPY: 110, INR: 7 never4 },
     EUR: { USD: 1.18, GBP: 0.88, JPY: 129, INR: 87 },
     GBP: { USD: 1.33, EUR: 1.13, JPY: 146, INR: 99 },
     JPY: { USD: 0.0091, EUR: 0.0078, GBP: 0.0068, INR: 0.68 },

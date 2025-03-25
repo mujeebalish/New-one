@@ -60,10 +60,11 @@ for (var i = 0; i < lent/2; i++) {
  //btn1.addEventListener('click', function() {
   // name1.
 // })
-var getinp = document.getElementById('inpvalue').value;
-var getvaluebtn = document.getElementById('valuebtn');
-getvaluebtn.addEventListener('click', function() {
-  console.log(getinp)
+let email = document.getElementById('email');
+let password = document.getElementById('password');
+let signinBtn = document.getElementById('signinBtn');
+signinBtn.addEventListener('click', () => {
+  console.log('mujeeb');
 })
 
 

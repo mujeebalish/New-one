@@ -34,7 +34,7 @@ getcolbtn.addEventListener('click', function(){
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
   import { getAnalytics } from "";
   import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js"
-  // TODO: Add SDKs for Firebase products that you want to use
+  // : Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
   // Your web app's Firebase configuration
@@ -61,27 +61,25 @@ getcolbtn.addEventListener('click', function(){
   
   
   
-  
-  
+  import {auth, createUserWithEmailAndPassword,} from '/Authentication-App/firebase.js';
+  let email = document.getElementById('email');
+  let password = document.getElementById('password')
 let signupBtn = document.getElementById('register-btn');
 signupBtn.addEventListener('click', () => {
-  let email = document.getElementById('email-value');
-  let password = document.getElementById('password-value');
- /* createUserWithEmailAndPassword(auth, email, password)
+// console.log(email.value,password.value)
+createUserWithEmailAndPassword(auth, email.value, password.value)
   .then((userCredential) => {
-    // Signed up 
+    alert('Successfully signed up')
     const user = userCredential.user;
-    console.log(user)
     // ...
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    console.log(errorMessage)
-    // ..
-  });*/
+    alert(errorMessage)
+  });
 
-  console.log(email.value, password.value)
+  
 })
 
  

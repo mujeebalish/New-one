@@ -1,0 +1,29 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body{
+  background-color: whi#B6E5B3; 
+}
+.email-container{
+  
+  background-color: #55AD4F;
+  width: 70%;
+  margin: 50px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+ }
+ .email-box{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+ }
+#email-inp{
+  padding: 10px;
+  
+}
+#email-inp:hover{ 
+  box-shadow: 10px 20px 10px rgba(0, 0, 255, 0.5);
+}

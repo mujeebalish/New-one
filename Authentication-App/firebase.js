@@ -1,23 +1,21 @@
 
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+  import {getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
   
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-  import {getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-Auth.js";
-  
-
-
+  // TODO: Add SDKs for Firebase products that you 
   const firebaseConfig = {
-    apiKey: "AIzaSyBPAm8-q16Kf0oWgOkkD96-gE4tm6b-3A8",
-    authDomain: "mujeeb-385b0.firebaseapp.com",
-    projectId: "mujeeb-385b0",
-    storageBucket: "mujeeb-385b0.appspot.com",
-    messagingSenderId: "593255510425",
-    appId: "1:593255510425:web:814e2e60efb3774124e308",
-    measurementId: "G-YGL8HL83TK"
+    apiKey: "AIzaSyDmRcaCmxogM0lxMKfayi3id_urOklKVdw",
+    authDomain: "login-page-8769d.firebaseapp.com",
+    projectId: "login-page-8769d",
+    storageBucket: "login-page-8769d.firebasestorage.app",
+    messagingSenderId: "323503777957",
+    appId: "1:323503777957:web:a1cfc9fed443e3dd8c854c",
+    measurementId: "G-D2NZT0JF84"
   };
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
+
   const auth = getAuth(app);
-  export{auth ,createUserWithEmailAndPassword}
-  
-  
+  export{auth, createUserWithEmailAndPassword}
